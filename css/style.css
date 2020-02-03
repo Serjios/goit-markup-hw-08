@@ -41,7 +41,7 @@ body {
 
 /* CONTAINER */
 .container {
-  width: 1170px;
+  max-width: 1170px;
   margin: 0 auto;
   padding-right: 30px;
   padding-left: 30px;
@@ -58,12 +58,8 @@ body {
   align-items: center;
 }
 
-.list-item {
+.page-nav__items {
   display: flex;
-}
-
-.list-item .item {
-  text-align: center;
 }
 
 .tel,
@@ -93,12 +89,13 @@ body {
   background-position: center;
 }
 
-.auth-list {
+.auth-nav {
   display: flex;
   margin-left: auto;
 }
 
-.page-nav .link {
+.page-nav__link,
+.auth-nav__link {
   display: flex;
   font-weight: 300;
   text-decoration: none;
@@ -111,23 +108,9 @@ body {
 }
 
 /* SITE NAV */
-.main-site-nav {
-  min-height: 90px;
-}
-
 .site-nav {
   display: flex;
   align-items: center;
-}
-
-.nav-list {
-  display: flex;
-  margin-left: auto;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: var(--nav-color);
 }
 
 .logo {
@@ -146,7 +129,12 @@ body {
   font-weight: 900;
 }
 
-.nav-link {
+.nav-list {
+  display: flex;
+  margin-left: auto;
+}
+
+.nav-list__link {
   display: block;
   color: #0f0101;
   font-family: var(--font-opensans);
@@ -161,15 +149,16 @@ body {
   padding-bottom: 35px;
 }
 
+.nav-list__link:hover,
+.nav-list__link:focus {
+  color: var(--nav-color);
+}
+
 /* BANNER */
 .banner {
   position: relative;
   height: 600px;
-  background-image: linear-gradient(
-      rgba(24, 24, 24, 0.5),
-      rgba(50, 50, 50, 0.5)
-    ),
-    url('../images/main_foto.png');
+  background-image: linear-gradient(rgba(24, 24, 24, 0.5), rgba(50, 50, 50, 0.5)), url('../images/main_foto.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -195,7 +184,7 @@ body {
   letter-spacing: -1px;
 }
 
-.hero-title .first {
+.hero-title__first-line {
   display: block;
   font-family: var(--font-roboto);
   font-weight: 300;
@@ -204,12 +193,12 @@ body {
   margin: 0 auto;
 }
 
-.hero-title .second {
+.hero-title__middle-letter {
   font-weight: 900;
   color: var(--nav-color);
 }
 
-.hero-title .last {
+.hero-title__second-line {
   font-weight: 600;
   color: var(--nav-color);
   letter-spacing: -2px;
@@ -234,13 +223,13 @@ body {
 }
 
 /* ABOUT */
-.about-list {
+.about__list {
   display: flex;
   padding-top: 96px;
   padding-bottom: 84px;
 }
 
-.about-title {
+.about__title {
   font-size: 18px;
   font-weight: 700;
   line-height: 1.77;
@@ -249,7 +238,7 @@ body {
   margin-bottom: 30px;
 }
 
-.about-title::before {
+.about__title::before {
   display: block;
   content: '';
   height: 65px;
@@ -276,18 +265,18 @@ body {
   background-image: url('../images/icon4.png');
 }
 
-.about-item {
+.about__item {
   flex-basis: (100% / 4 - 30px);
   margin-right: 39px;
   flex-grow: 0;
   text-align: center;
 }
 
-.about-item:last-child {
+.about__item:last-child {
   margin-right: 0;
 }
 
-.about-item .item {
+.about__text {
   font-weight: 300;
   font-size: 14px;
   margin: 0;
@@ -303,9 +292,9 @@ body {
   padding-bottom: 100px;
 }
 
-.collection .title::after,
-.gallery .title::after,
-.blog .title::after {
+.collection__title::after,
+.gallery__title::after,
+.blog__title::after {
   display: block;
   position: absolute;
   content: '';
@@ -322,47 +311,47 @@ body {
   background-color: #e9effd;
 }
 
-.gallery .title,
-.collection .title {
+.gallery__title,
+.collection__title {
   margin-bottom: 130px;
 }
 
-.gallery-list,
-.collection-list {
+.gallery__list,
+.collection__list {
   display: flex;
 }
 
-.gallery-item,
-.collection-item {
+.gallery__item,
+.collection__item {
   flex-basis: calc(100% / 4 - 22.5px);
   flex-grow: 0;
   margin-right: 30px;
   margin-bottom: 30px;
 }
 
-.image-container {
+.collection__image {
   height: 320px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.collection .price-link,
-.gallery .price-link {
+.collection__link,
+.gallery__link {
   text-decoration: none;
   font-size: 18px;
   font-weight: 900;
   transition: background-color var(--animation-time) var(--function-time);
 }
 
-.price-title,
-.price {
+.collection__text,
+.collection__price {
   font-size: 18px;
   font-family: var(--font-roboto);
   font-weight: 900;
 }
 
-.price-title {
+.collection__text {
   text-transform: uppercase;
   padding-left: 13px;
   padding-top: 13px;
@@ -372,26 +361,26 @@ body {
   flex-grow: 1;
 }
 
-.price {
+.collection__price {
   padding: 13px;
   margin: 0;
   background-color: #8c8c8c;
   color: #fff;
 }
 
-.coin {
+.collection__coin {
   display: flex;
 }
 
-.collection .price-link:hover .price-title,
-.collection .price-link:focus .price-title,
+.collection__link:hover .collection__text,
+.collection__-link:focus .collection__text,
 .gallery .price-link:hover .price-title,
 .gallery .price-link:focus .price-title {
   background-color: var(--nav-color);
 }
 
-.collection .price-link:hover .price,
-.collection .price-link:focus .price,
+.collection__link:hover .collection__price,
+.collection__link:focus .collection__price,
 .gallery .price-link:hover .price,
 .gallery .price-link:focus .price {
   background-color: #7ed9c7;
@@ -402,7 +391,7 @@ body {
   overflow: hidden;
 }
 
-.collection-item .overlay::before,
+.overlay::before,
 .gallery-item .overlay::before {
   position: absolute;
   top: 10px;
@@ -416,14 +405,14 @@ body {
   transition: transform var(--animation-time) var(--function-time);
 }
 
-.collection-item:hover .overlay::before,
+.collection__item:hover .overlay::before,
 .gallery-item:hover .overlay::before {
   display: block;
   transform: translateY(0);
   opacity: 1;
 }
 
-.overlay-list {
+.overlay__list {
   position: absolute;
   display: flex;
   flex-wrap: wrap;
@@ -434,24 +423,24 @@ body {
   transition: opacity var(--animation-time) var(--function-time) 250ms;
 }
 
-.overlay:hover .overlay-list {
+.overlay:hover .overlay__list {
   opacity: 1;
 }
 
-.overlay-item {
+.overlay__item {
   margin-right: 7px;
   flex-basis: calc(100% / 3 - 5px);
 }
 
-.overlay-item:nth-child(3) {
+.overlay__item:nth-child(3) {
   margin-right: 0;
 }
 
-.overlay-item:last-child {
+.overlay__item:last-child {
   margin-right: 0;
 }
 
-.overlay-icon {
+.overlay__icon {
   height: 50px;
   width: 50px;
   padding: 0;
@@ -475,7 +464,7 @@ body {
   background-image: url('../images/icon_watch.png');
 }
 
-.overlay-item .button {
+.overlay__button {
   border: 1px solid #fff;
   color: #fff;
   text-transform: uppercase;
@@ -495,8 +484,8 @@ body {
   background-repeat: no-repeat;
 }
 
-.overlay-icon:hover,
-.overlay-item .button:hover {
+.overlay__icon:hover,
+.overlay__button:hover {
   background-color: var(--nav-color);
 }
 
