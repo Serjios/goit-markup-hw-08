@@ -277,6 +277,11 @@ body {
 }
 
 /* COLLECTION, GALERY, BLOG */
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 .section__title {
   position: relative;
   font-family: var(--font-roboto);
@@ -287,11 +292,6 @@ body {
   text-transform: uppercase;
   text-align: center;
   margin: 0;
-}
-
-.section {
-  padding-top: 100px;
-  padding-bottom: 100px;
 }
 
 .collection__title::after,
