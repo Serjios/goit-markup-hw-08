@@ -241,19 +241,19 @@ body {
   background-position: center center;
 }
 
-.about__item--setting:first-child::before {
+.about__item--setting::before {
   background-image: url('../images/icon1.png');
 }
 
-.about__item--setting:nth-child(2)::before {
+.about__item--money::before {
   background-image: url('../images/icon2.png');
 }
 
-.about__item--setting:nth-child(3)::before {
+.about__item--worldwide::before {
   background-image: url('../images/icon3.png');
 }
 
-.about__item--setting:last-child::before {
+.about__item--compass::before {
   background-image: url('../images/icon4.png');
 }
 
@@ -294,9 +294,7 @@ body {
   margin: 0;
 }
 
-.collection__title::after,
-.gallery__title::after,
-.blog__title::after {
+.section__title::after {
   display: block;
   position: absolute;
   content: '';
@@ -500,10 +498,12 @@ body {
   flex-wrap: wrap;
 }
 
+.collection__item:nth-child(4n),
 .gallery__item:nth-child(4n) {
   margin-right: 0;
 }
 
+.collection__item:nth-last-child(-n + 4),
 .gallery__item:nth-last-child(-n + 4) {
   margin-bottom: 0;
 }
@@ -521,17 +521,17 @@ body {
   display: flex;
 }
 
-.blog-article__item {
+.blog__item {
   flex-basis: calc(100% / 3 - 20px);
   flex-grow: 0;
   margin-right: 30px;
 }
 
-.blog-article__item:last-child {
+.blog__item:last-child {
   margin-right: 0;
 }
 
-.blog-article__title {
+.blog__topic {
   font-size: 18px;
   font-family: var(--font-opensans);
   font-weight: 600;
@@ -542,7 +542,7 @@ body {
   margin-bottom: 45px;
 }
 
-.blog-article__text {
+.blog__text {
   font-family: var(--font-opensans);
   font-size: 14px;
   line-height: 1.85;
@@ -551,7 +551,7 @@ body {
   margin-bottom: 17px;
 }
 
-.blog-article__link {
+.blog__link {
   display: inline-block;
   font-family: var(--font-opensans);
   font-weight: 300;
@@ -569,8 +569,8 @@ body {
   transition: color var(--animation-time) var(--function-time);
 }
 
-.blog-article__link:hover,
-.blog-article__link:focus {
+.blog__link:hover,
+.blog__link:focus {
   background-color: rgba(13, 236, 13, 0.5);
   color: var(--nav-color);
 }
